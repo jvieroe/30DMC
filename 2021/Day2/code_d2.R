@@ -5,6 +5,7 @@ library(tidyverse)
 library(magrittr)
 library(sf)
 library(patchwork)
+library(knitr)
 
 
 getwd()
@@ -46,11 +47,13 @@ ggplot() +
   theme_void() +
   theme(legend.position = "none",
         #plot.background = element_rect(fill = scales::alpha("#E8E1D5", .25))
-        plot.background = element_rect(fill = "#ivory")
+        plot.background = element_rect(fill = "ivory")
         )
 
 ggsave(plot = last_plot(),
        filename = "2021/Day2/roads_plot.png")
+knitr::plot_crop("2021/Day2/roads_plot.png",
+                 quiet = T)
 
 
 # 9, 17,
